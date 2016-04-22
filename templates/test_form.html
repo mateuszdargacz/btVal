@@ -1,0 +1,77 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+</head>
+<body>
+
+<form class="form-horizontal" name="testForm">
+    <fieldset>
+
+        <!-- Form Name -->
+        <legend>testForm</legend>
+
+        <!-- Text input-->
+        <!-- Color input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="colorinput">Required Input</label>
+            <div class="col-md-4">
+                <input id="textinput" name="colorinput" type="text" placeholder="placeholder"
+                       class="form-control input-md" required>
+                <span class="help-block"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="colorinput">Email Input</label>
+            <div class="col-md-4">
+                <input id="emaliinput" name="emailinput" type="email" placeholder="placeholder"
+                       class="form-control input-md" required>
+                <span class="help-block"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="textinput">Regex/zipcode Input</label>
+            <div class="col-md-4">
+                <input id="zipcode" name="zipcode" type="text" placeholder="placeholder"
+                       class="form-control input-md">
+                <span class="help-block"></span>
+            </div>
+        </div>
+
+        <!-- Password input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="passwordinput">Password Input</label>
+            <div class="col-md-4">
+                <input id="passwordinput" name="passwordinput" type="password" placeholder="placeholder"
+                       class="form-control input-md">
+                <span class="help-block"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="submit"></label>
+            <div class="col-md-4">
+                <button type="submit" class="btn btn-primary pull-right" name="submit">Submit!</button>
+            </div>
+        </div>
+    </fieldset>
+</form>
+
+<script src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/validation.js' %}"></script>
+<script>
+    var init = function(){
+        $('form').bsVal()
+                 .bsVal('addRXValidation', 'zipcode', /^\d\d-\d\d\d$/)
+                 .bsVal('minPasswordLength', 10)
+                 .bsVal('addZipCodeValidation', 'zipcode');
+    };
+    $(document).ready(function(){
+      init();
+    });
+</script>
+</body>
+</html>

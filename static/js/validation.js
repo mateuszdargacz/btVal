@@ -300,7 +300,6 @@
         } else {
             $.error('Method ' + optionsOrMethods + ' does not exist on jQuery.bootstrapValidation plugin');
         }
-        console.log('PASS LENGTH', options.minPasswordLength);
         return that;
 
     };
